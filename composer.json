@@ -1,0 +1,17 @@
+{
+    "name": "felipemenezesdm/laravel-secret-manager-suite",
+    "description": "Suite de gerenciamento de secrets para Laravel, compatível com Amazon Web Services e Google Cloud Plaatform",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "FelipeMenezesDM\\LaravelSecretManagerSuite\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Felipe Menezes",
+            "email": "contato@felipemenezes.com.br"
+        }
+    ],
+    "require": {}
+}
