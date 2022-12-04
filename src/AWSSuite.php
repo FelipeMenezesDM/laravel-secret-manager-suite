@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Suites;
+namespace FelipeMenezesDM\LaravelSecretManagerSuite;
 
-use App\Console\LogPayload;
-use App\Enums\HttpStatusCode;
+use FelipeMenezesDM\LaravelLoggerAdapter\LogPayload;
+use FelipeMenezesDM\LaravelCommons\Enums\HttpStatusCode;
 use Aws\SecretsManager\SecretsManagerClient;
 use Exception;
+use Illuminate\Support\Facades\Log;
 
 class AWSSuite extends Suite
 {
@@ -27,7 +28,7 @@ class AWSSuite extends Suite
 
             return base64_decode($result['SecretBinary']);
         }catch(Exception $e) {
-            logger(sprintf('Secret query failed: %s', $secretName), LogPayload::build()
+            Log::info(sprintf('Secret query failed: %s', $secretName), LogPayload::build()
                 ->setMessage($e->getMessage())
                 ->setLogCode($e->getCode())
                 ->setDetails($e->getTrace())
@@ -63,7 +64,7 @@ class AWSSuite extends Suite
                     ]);
                 }
             }catch(Exception $e) {
-                logger(sprintf('Secret creation failed: %s', $secretName), LogPayload::build()
+                Log::info(sprintf('Secret creation failed: %s', $secretName), LogPayload::build()
                     ->setMessage($e->getMessage())
                     ->setLogCode($e->getCode())
                     ->setDetails($e->getTrace())
