@@ -5,7 +5,10 @@
     "autoload": {
         "psr-4": {
             "FelipeMenezesDM\\LaravelSecretManagerSuite\\": "src/"
-        }
+        },
+        "files": [
+            "src/Helpers/helpers.php"
+        ]
     },
     "minimum-stability": "stable",
     "authors": [

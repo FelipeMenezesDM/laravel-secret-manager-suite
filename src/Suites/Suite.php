@@ -1,6 +1,6 @@
 <?php
 
-namespace FelipeMenezesDM\LaravelSecretManagerSuite;
+namespace FelipeMenezesDM\LaravelSecretManagerSuite\Suites;
 
 class Suite
 {
