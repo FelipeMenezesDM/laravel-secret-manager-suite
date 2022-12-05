@@ -15,7 +15,7 @@ class GCPSuite extends Suite
     protected static $isCloud = true;
 
     /** @Override */
-    protected function getSecretData(string $secretName) : string
+    public function getSecretData(string $secretName) : string
     {
         if(empty($secretName)) {
             return $secretName;

@@ -11,6 +11,13 @@ class Suite
     private static $dbName;
     private static $dbUsername;
     private static $dbPassword;
+    private static $mailHost;
+    private static $mailUsername;
+    private static $mailPassword;
+    private static $reCaptchaSiteKey;
+    private static $reCaptchaSecretKey;
+    private static $adminEmail;
+    private static $adminPassword;
 
     /**
      * Singleton pattern
@@ -117,12 +124,131 @@ class Suite
     }
 
     /**
+     * Get mail server host from secret manager
+     *
+     * @return string
+     */
+    public function getMailHost() : string
+    {
+        if(self::$mailHost === null) {
+            self::$mailHost = $this->getSecretData(getenv('MAIL_HOST'));
+        }
+
+        return self::$mailHost;
+    }
+
+    /**
+     * Get mail server port from secret manager
+     *
+     * @return string
+     */
+    public function getMailPort() : int
+    {
+        return getenv('MAIL_PORT');
+    }
+
+    /**
+     * Get mail server username from secret manager
+     *
+     * @return string
+     */
+    public function getMailUsername() : string
+    {
+        if(self::$mailUsername === null) {
+            self::$mailUsername = $this->getSecretData(getenv('MAIL_USERNAME'));
+        }
+
+        return self::$mailUsername;
+    }
+
+    /**
+     * Get mail server password from secret manager
+     *
+     * @return string
+     */
+    public function getMailPassword() : string
+    {
+        if(self::$mailPassword === null) {
+            self::$mailPassword = $this->getSecretData(getenv('MAIL_PASSWORD'));
+        }
+
+        return self::$mailPassword;
+    }
+
+    /**
+     * Get ReCaptcha site key from secret manager
+     *
+     * @return string
+     */
+    public function getReCaptchaSiteKey() : string
+    {
+        if(self::$reCaptchaSiteKey === null) {
+            self::$reCaptchaSiteKey = $this->getSecretData(getenv('RECAPTCHA_SITE_KEY'));
+        }
+
+        return self::$reCaptchaSiteKey;
+    }
+
+    /**
+     * Get ReCaptcha secret key from secret manager
+     *
+     * @return string
+     */
+    public function getReCaptchaSecretKey() : string
+    {
+        if(self::$reCaptchaSecretKey === null) {
+            self::$reCaptchaSecretKey = $this->getSecretData(getenv('RECAPTCHA_SECRET_KEY'));
+        }
+
+        return self::$reCaptchaSecretKey;
+    }
+
+    /**
+     * Get admin email from secret manager
+     *
+     * @return string
+     */
+    public function getAdminEmail() : string
+    {
+        if(self::$adminEmail === null) {
+            self::$adminEmail = $this->getSecretData(getenv('ADMIN_EMAIL'));
+        }
+
+        return self::$adminEmail;
+    }
+
+    /**
+     * Get admin password from secret manager
+     *
+     * @return string
+     */
+    public function getAdminPassword() : string
+    {
+        if(self::$adminPassword === null) {
+            self::$adminPassword = $this->getSecretData(getenv('ADMIN_PASSWORD'));
+        }
+
+        return self::$adminPassword;
+    }
+
+    /**
+     * Get server keys from secret manager
+     *
+     * @param string $secretName
+     * @return string
+     */
+    public function getServerKeys(string $secretName) : string
+    {
+        return $this->getSecretData($secretName);
+    }
+
+    /**
      * Get secret value
      *
      * @param string $secretName
      * @return string
      */
-    protected function getSecretData(string $secretName) : string
+    public function getSecretData(string $secretName) : string
     {
         return $secretName;
     }
