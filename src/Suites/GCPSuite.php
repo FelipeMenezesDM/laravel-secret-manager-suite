@@ -7,9 +7,8 @@ use FelipeMenezesDM\LaravelCommons\Enums\HttpStatusCode;
 use Google\Cloud\SecretManager\V1\Replication;
 use Google\Cloud\SecretManager\V1\Secret;
 use Google\Cloud\SecretManager\V1\SecretManagerServiceClient;
-use Exception;
 use Google\Cloud\SecretManager\V1\SecretPayload;
-use Illuminate\Support\Facades\Log;
+use Exception;
 
 class GCPSuite extends Suite
 {
@@ -28,13 +27,14 @@ class GCPSuite extends Suite
 
             return $secret->getPayload()->getData();
         } catch (Exception $e) {
-            Log::info(sprintf('Secret query failed: %s', $secretName), LogPayload::build()
-                ->setMessage($e->getMessage())
-                ->setLogCode($e->getCode())
-                ->setDetails($e->getTrace())
-                ->setHttpStatus(HttpStatusCode::HTTP_INTERNAL_SERVER_ERROR)
-                ->toArray()
-            );
+            error_log(json_encode(
+                LogPayload::build()
+                    ->setMessage($e->getMessage())
+                    ->setLogCode($e->getCode())
+                    ->setDetails($e->getTrace())
+                    ->setHttpStatus(HttpStatusCode::HTTP_INTERNAL_SERVER_ERROR)
+                    ->toArray()
+            ));
 
             return "";
         }
@@ -68,13 +68,14 @@ class GCPSuite extends Suite
 
                 $secretClient->addSecretVersion($secret->getName(), new SecretPayload(['data' => $secretValue]));
             } catch (Exception $e) {
-                Log::info(sprintf('Secret creation failed: %s', $secretName), LogPayload::build()
-                    ->setMessage($e->getMessage())
-                    ->setLogCode($e->getCode())
-                    ->setDetails($e->getTrace())
-                    ->setHttpStatus(HttpStatusCode::HTTP_INTERNAL_SERVER_ERROR)
-                    ->toArray()
-                );
+                error_log(json_encode(
+                    LogPayload::build()
+                        ->setMessage($e->getMessage())
+                        ->setLogCode($e->getCode())
+                        ->setDetails($e->getTrace())
+                        ->setHttpStatus(HttpStatusCode::HTTP_INTERNAL_SERVER_ERROR)
+                        ->toArray()
+                ));
             }
         }
     }

@@ -6,7 +6,6 @@ use FelipeMenezesDM\LaravelLoggerAdapter\LogPayload;
 use FelipeMenezesDM\LaravelCommons\Enums\HttpStatusCode;
 use Aws\SecretsManager\SecretsManagerClient;
 use Exception;
-use Illuminate\Support\Facades\Log;
 
 class AWSSuite extends Suite
 {
@@ -28,13 +27,14 @@ class AWSSuite extends Suite
 
             return base64_decode($result['SecretBinary']);
         }catch(Exception $e) {
-            Log::info(sprintf('Secret query failed: %s', $secretName), LogPayload::build()
-                ->setMessage($e->getMessage())
-                ->setLogCode($e->getCode())
-                ->setDetails($e->getTrace())
-                ->setHttpStatus(HttpStatusCode::HTTP_INTERNAL_SERVER_ERROR)
-                ->toArray()
-            );
+            error_log(json_encode(
+                LogPayload::build()
+                    ->setMessage($e->getMessage())
+                    ->setLogCode($e->getCode())
+                    ->setDetails($e->getTrace())
+                    ->setHttpStatus(HttpStatusCode::HTTP_INTERNAL_SERVER_ERROR)
+                    ->toArray()
+            ));
 
             return "";
         }
@@ -64,13 +64,14 @@ class AWSSuite extends Suite
                     ]);
                 }
             }catch(Exception $e) {
-                Log::info(sprintf('Secret creation failed: %s', $secretName), LogPayload::build()
-                    ->setMessage($e->getMessage())
-                    ->setLogCode($e->getCode())
-                    ->setDetails($e->getTrace())
-                    ->setHttpStatus(HttpStatusCode::HTTP_INTERNAL_SERVER_ERROR)
-                    ->toArray()
-                );
+                error_log(json_encode(
+                    LogPayload::build()
+                        ->setMessage($e->getMessage())
+                        ->setLogCode($e->getCode())
+                        ->setDetails($e->getTrace())
+                        ->setHttpStatus(HttpStatusCode::HTTP_INTERNAL_SERVER_ERROR)
+                        ->toArray()
+                ));
             }
         }
     }
