@@ -14,5 +14,5 @@ composer require felipemenezesdm/laravel-secret-manager-suite
 
 ## Links úteis
 
-- [Laravel Commons on GitHub](https://github.com/FelipeMenezesDM/laravel-secret-manager-suite)
-- [Laravel Commons on Packagist](https://packagist.org/packages/felipemenezesdm/laravel-secret-manager-suite)
+- [Laravel Secret Manager Suite on GitHub](https://github.com/FelipeMenezesDM/laravel-secret-manager-suite)
+- [Laravel Secret Manager Suite on Packagist](https://packagist.org/packages/felipemenezesdm/laravel-secret-manager-suite)
