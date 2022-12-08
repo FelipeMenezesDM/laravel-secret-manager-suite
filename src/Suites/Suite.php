@@ -2,6 +2,8 @@
 
 namespace FelipeMenezesDM\LaravelSecretManagerSuite\Suites;
 
+use Psr\SimpleCache\CacheInterface;
+
 class Suite
 {
     protected static $isCloud = false;
@@ -18,6 +20,17 @@ class Suite
     private static $reCaptchaSecretKey;
     private static $adminEmail;
     private static $adminPassword;
+    protected $cache;
+
+    /**
+     * Construct
+     *
+     * @param CacheInterface $cache
+     */
+    public function __construct(CacheInterface $cache)
+    {
+        $this->cache = $cache;
+    }
 
     /**
      * Singleton pattern
@@ -260,4 +273,15 @@ class Suite
      * @param array|string $secretValue
      */
     public function createSecret(string $secretName, array|string $secretValue) : void {}
+
+    /**
+     * Create a cache key
+     *
+     * @param string $key
+     * @return string
+     */
+    protected function cacheKey(string $key): string
+    {
+        return sprintf('%s::%s', self::class, $key);
+    }
 }

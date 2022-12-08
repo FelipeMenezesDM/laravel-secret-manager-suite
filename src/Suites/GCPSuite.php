@@ -21,11 +21,18 @@ class GCPSuite extends Suite
             return $secretName;
         }
 
+        $cacheKey = $this->cacheKey($secretName);
+
+        if ($this->cache->has($cacheKey)) {
+            return $this->cache->get($cacheKey);
+        }
+
         try {
             $secretClient = new SecretManagerServiceClient();
-            $secret = $secretClient->accessSecretVersion('projects/' . getenv('GCP_PROJECT_ID') . '/secrets/' . $secretName . '/versions/latest');
+            $value = $secretClient->accessSecretVersion('projects/' . getenv('GCP_PROJECT_ID') . '/secrets/' . $secretName . '/versions/latest')->getPayload()->getData();
+            $this->cache->set($cacheKey, $value);
 
-            return $secret->getPayload()->getData();
+            return $value;
         } catch (Exception $e) {
             error_log(json_encode(
                 LogPayload::build()
@@ -51,6 +58,7 @@ class GCPSuite extends Suite
 
                 $projectId = getenv('GCP_PROJECT_ID');
                 $secretClient = new SecretManagerServiceClient();
+                $secretFullName = 'projects/' . $projectId . '/secrets/' . $secretName;
 
                 try {
                     $secret = $secretClient->createSecret(
@@ -62,11 +70,17 @@ class GCPSuite extends Suite
                             ])
                         ])
                     );
-                } catch (Exception) {
-                    $secret = $secretClient->getSecret('projects/' . $projectId . '/secrets/' . $secretName);
-                }
 
-                $secretClient->addSecretVersion($secret->getName(), new SecretPayload(['data' => $secretValue]));
+                    $secretClient->addSecretVersion($secret->getName(), new SecretPayload(['data' => $secretValue]));
+                } catch (Exception) {
+                    $secret = $secretClient->getSecret($secretFullName);
+                    $currentValue = $secretClient->accessSecretVersion($secretFullName . '/versions/latest')->getPayload()->getData();
+
+                    if($currentValue != $secretValue) {
+                        $secretClient->disableSecretVersion($secretFullName . '/versions/*');
+                        $secretClient->addSecretVersion($secret->getName(), new SecretPayload(['data' => $secretValue]));
+                    }
+                }
             } catch (Exception $e) {
                 error_log(json_encode(
                     LogPayload::build()

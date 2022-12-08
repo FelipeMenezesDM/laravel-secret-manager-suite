@@ -18,14 +18,18 @@ class AWSSuite extends Suite
             return $secretName;
         }
 
+        $cacheKey = $this->cacheKey($secretName);
+
+        if ($this->cache->has($cacheKey)) {
+            return $this->cache->get($cacheKey);
+        }
+
         try{
             $result = $this->getSecretsManagerClient()->getSecretValue([ 'SecretId' => $secretName ]);
+            $value = isset($result['SecretString']) ? $result['SecretString'] :  base64_decode($result['SecretBinary']);
+            $this->cache->set($cacheKey, $value);
 
-            if(isset($result['SecretString'])) {
-                return $result['SecretString'];
-            }
-
-            return base64_decode($result['SecretBinary']);
+            return $value;
         }catch(Exception $e) {
             error_log(json_encode(
                 LogPayload::build()
@@ -58,10 +62,15 @@ class AWSSuite extends Suite
                         'SecretString'  => $secretValue,
                     ]);
                 }catch(Exception) {
-                    $client->putSecretValue([
-                        'SecretId'      => $secretName,
-                        'SecretString'  => $secretValue,
-                    ]);
+                    $result = $client->getSecretValue([ 'SecretId' => $secretName ]);
+                    $currentValue = isset($result['SecretString']) ? $result['SecretString'] :  base64_decode($result['SecretBinary']);
+
+                    if($secretValue != $currentValue) {
+                        $client->putSecretValue([
+                            'SecretId' => $secretName,
+                            'SecretString' => $secretValue,
+                        ]);
+                    }
                 }
             }catch(Exception $e) {
                 error_log(json_encode(
