@@ -58,16 +58,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.252.1",
+            "version": "3.252.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "5cc35b5f66d026d99ba843dba6fe1783571c20af"
+                "reference": "ce0b006b73c6ea78eb570aa3fcd838d0df34ec1b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/5cc35b5f66d026d99ba843dba6fe1783571c20af",
-                "reference": "5cc35b5f66d026d99ba843dba6fe1783571c20af",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/ce0b006b73c6ea78eb570aa3fcd838d0df34ec1b",
+                "reference": "ce0b006b73c6ea78eb570aa3fcd838d0df34ec1b",
                 "shasum": ""
             },
             "require": {
@@ -146,9 +146,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.252.1"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.252.4"
             },
-            "time": "2022-12-02T19:21:15+00:00"
+            "time": "2022-12-07T19:47:20+00:00"
         },
         {
             "name": "brick/math",
@@ -303,12 +303,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FelipeMenezesDM/laravel-commons.git",
-                "reference": "2b261ce0ef82469652c6f241b735f2838ada42f0"
+                "reference": "cb6c496222f95616eb302a73a16129bd0afdd505"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FelipeMenezesDM/laravel-commons/zipball/2b261ce0ef82469652c6f241b735f2838ada42f0",
-                "reference": "2b261ce0ef82469652c6f241b735f2838ada42f0",
+                "url": "https://api.github.com/repos/FelipeMenezesDM/laravel-commons/zipball/cb6c496222f95616eb302a73a16129bd0afdd505",
+                "reference": "cb6c496222f95616eb302a73a16129bd0afdd505",
                 "shasum": ""
             },
             "require": {
@@ -332,7 +332,7 @@
                 "issues": "https://github.com/FelipeMenezesDM/laravel-commons/issues",
                 "source": "https://github.com/FelipeMenezesDM/laravel-commons/tree/v1.0.0"
             },
-            "time": "2022-12-04T21:33:47+00:00"
+            "time": "2022-12-05T01:09:10+00:00"
         },
         {
             "name": "felipemenezesdm/laravel-logger-adapter",
@@ -340,12 +340,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FelipeMenezesDM/laravel-logger-adapter.git",
-                "reference": "e0d5bcdd9b2bcb6b84a93fb82fce9ad1d05b776a"
+                "reference": "ded6dbba6ac796e0c63d46c9f11832a7cfaadb32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FelipeMenezesDM/laravel-logger-adapter/zipball/e0d5bcdd9b2bcb6b84a93fb82fce9ad1d05b776a",
-                "reference": "e0d5bcdd9b2bcb6b84a93fb82fce9ad1d05b776a",
+                "url": "https://api.github.com/repos/FelipeMenezesDM/laravel-logger-adapter/zipball/ded6dbba6ac796e0c63d46c9f11832a7cfaadb32",
+                "reference": "ded6dbba6ac796e0c63d46c9f11832a7cfaadb32",
                 "shasum": ""
             },
             "require": {
@@ -372,7 +372,7 @@
                 "issues": "https://github.com/FelipeMenezesDM/laravel-logger-adapter/issues",
                 "source": "https://github.com/FelipeMenezesDM/laravel-logger-adapter/tree/v1.0.0"
             },
-            "time": "2022-12-04T22:26:37+00:00"
+            "time": "2022-12-05T01:11:17+00:00"
         },
         {
             "name": "firebase/php-jwt",
@@ -496,16 +496,16 @@
         },
         {
             "name": "google/cloud-secret-manager",
-            "version": "v1.9.5",
+            "version": "v1.9.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-cloud-php-secret-manager.git",
-                "reference": "3a140158064c40b03c94cfdb9af7d295277138cc"
+                "reference": "f3da2c1e2fe6f75b2ed3972181049968a3caa966"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-cloud-php-secret-manager/zipball/3a140158064c40b03c94cfdb9af7d295277138cc",
-                "reference": "3a140158064c40b03c94cfdb9af7d295277138cc",
+                "url": "https://api.github.com/repos/googleapis/google-cloud-php-secret-manager/zipball/f3da2c1e2fe6f75b2ed3972181049968a3caa966",
+                "reference": "f3da2c1e2fe6f75b2ed3972181049968a3caa966",
                 "shasum": ""
             },
             "require": {
@@ -541,9 +541,9 @@
             ],
             "description": "Secret Manager Client for PHP",
             "support": {
-                "source": "https://github.com/googleapis/google-cloud-php-secret-manager/tree/v1.9.5"
+                "source": "https://github.com/googleapis/google-cloud-php-secret-manager/tree/v1.9.6"
             },
-            "time": "2022-08-23T20:22:22+00:00"
+            "time": "2022-12-07T23:19:22+00:00"
         },
         {
             "name": "google/common-protos",
@@ -599,16 +599,16 @@
         },
         {
             "name": "google/gax",
-            "version": "v1.17.0",
+            "version": "v1.18.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/gax-php.git",
-                "reference": "bb8d95187dcfebe04a40d2de916951fa4942fc35"
+                "reference": "45e01473b7215d593a58a72c89225f110e9d2ce0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/gax-php/zipball/bb8d95187dcfebe04a40d2de916951fa4942fc35",
-                "reference": "bb8d95187dcfebe04a40d2de916951fa4942fc35",
+                "url": "https://api.github.com/repos/googleapis/gax-php/zipball/45e01473b7215d593a58a72c89225f110e9d2ce0",
+                "reference": "45e01473b7215d593a58a72c89225f110e9d2ce0",
                 "shasum": ""
             },
             "require": {
@@ -649,9 +649,9 @@
             ],
             "support": {
                 "issues": "https://github.com/googleapis/gax-php/issues",
-                "source": "https://github.com/googleapis/gax-php/tree/v1.17.0"
+                "source": "https://github.com/googleapis/gax-php/tree/v1.18.1"
             },
-            "time": "2022-09-12T15:22:54+00:00"
+            "time": "2022-12-06T22:02:34+00:00"
         },
         {
             "name": "google/grpc-gcp",
@@ -700,16 +700,16 @@
         },
         {
             "name": "google/longrunning",
-            "version": "v0.2.0",
+            "version": "v0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/php-longrunning.git",
-                "reference": "5b7500eede9d6b18ef038bef0b5449cbf085e1d6"
+                "reference": "3bdea7559f0e9ff65b826b07c942cd430eabaf38"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/php-longrunning/zipball/5b7500eede9d6b18ef038bef0b5449cbf085e1d6",
-                "reference": "5b7500eede9d6b18ef038bef0b5449cbf085e1d6",
+                "url": "https://api.github.com/repos/googleapis/php-longrunning/zipball/3bdea7559f0e9ff65b826b07c942cd430eabaf38",
+                "reference": "3bdea7559f0e9ff65b826b07c942cd430eabaf38",
                 "shasum": ""
             },
             "require-dev": {
@@ -738,9 +738,9 @@
             ],
             "description": "Google LongRunning Client for PHP",
             "support": {
-                "source": "https://github.com/googleapis/php-longrunning/tree/v0.2.0"
+                "source": "https://github.com/googleapis/php-longrunning/tree/v0.2.1"
             },
-            "time": "2022-08-05T00:41:21+00:00"
+            "time": "2022-12-07T23:19:22+00:00"
         },
         {
             "name": "google/protobuf",
@@ -1163,16 +1163,16 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v9.42.2",
+            "version": "v9.43.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
-                "reference": "dd78f942e2052743e8f290292e4f7a40ec96ca12"
+                "reference": "7a8afa0875d7de162f30865d9fae33c8fb235fa2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/collections/zipball/dd78f942e2052743e8f290292e4f7a40ec96ca12",
-                "reference": "dd78f942e2052743e8f290292e4f7a40ec96ca12",
+                "url": "https://api.github.com/repos/illuminate/collections/zipball/7a8afa0875d7de162f30865d9fae33c8fb235fa2",
+                "reference": "7a8afa0875d7de162f30865d9fae33c8fb235fa2",
                 "shasum": ""
             },
             "require": {
@@ -1214,11 +1214,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2022-11-25T07:58:11+00:00"
+            "time": "2022-12-02T18:48:05+00:00"
         },
         {
             "name": "illuminate/conditionable",
-            "version": "v9.42.2",
+            "version": "v9.43.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/conditionable.git",
@@ -1264,7 +1264,7 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v9.42.2",
+            "version": "v9.43.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -1312,16 +1312,16 @@
         },
         {
             "name": "illuminate/macroable",
-            "version": "v9.42.2",
+            "version": "v9.43.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
-                "reference": "25a2c6dac2b7541ecbadef952702e84ae15f5354"
+                "reference": "e3bfaf6401742a9c6abca61b9b10e998e5b6449a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/macroable/zipball/25a2c6dac2b7541ecbadef952702e84ae15f5354",
-                "reference": "25a2c6dac2b7541ecbadef952702e84ae15f5354",
+                "url": "https://api.github.com/repos/illuminate/macroable/zipball/e3bfaf6401742a9c6abca61b9b10e998e5b6449a",
+                "reference": "e3bfaf6401742a9c6abca61b9b10e998e5b6449a",
                 "shasum": ""
             },
             "require": {
@@ -1354,20 +1354,20 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2022-02-01T14:44:21+00:00"
+            "time": "2022-08-09T13:29:29+00:00"
         },
         {
             "name": "illuminate/support",
-            "version": "v9.42.2",
+            "version": "v9.43.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "4062a19b71b68fac9248d4cf5948130a5e7e25b1"
+                "reference": "f3ec55d0f6256cb9da7e13fe758c75b443895226"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/4062a19b71b68fac9248d4cf5948130a5e7e25b1",
-                "reference": "4062a19b71b68fac9248d4cf5948130a5e7e25b1",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/f3ec55d0f6256cb9da7e13fe758c75b443895226",
+                "reference": "f3ec55d0f6256cb9da7e13fe758c75b443895226",
                 "shasum": ""
             },
             "require": {
@@ -1424,7 +1424,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2022-11-28T21:50:18+00:00"
+            "time": "2022-12-05T15:05:31+00:00"
         },
         {
             "name": "mtdowling/jmespath.php",
@@ -2119,16 +2119,16 @@
         },
         {
             "name": "symfony/deprecation-contracts",
-            "version": "v3.1.1",
+            "version": "v3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/deprecation-contracts.git",
-                "reference": "07f1b9cc2ffee6aaafcf4b710fbc38ff736bd918"
+                "reference": "1ee04c65529dea5d8744774d474e7cbd2f1206d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/07f1b9cc2ffee6aaafcf4b710fbc38ff736bd918",
-                "reference": "07f1b9cc2ffee6aaafcf4b710fbc38ff736bd918",
+                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/1ee04c65529dea5d8744774d474e7cbd2f1206d3",
+                "reference": "1ee04c65529dea5d8744774d474e7cbd2f1206d3",
                 "shasum": ""
             },
             "require": {
@@ -2137,7 +2137,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "3.1-dev"
+                    "dev-main": "3.3-dev"
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -2166,7 +2166,7 @@
             "description": "A generic function and convention to trigger deprecation notices",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/deprecation-contracts/tree/v3.1.1"
+                "source": "https://github.com/symfony/deprecation-contracts/tree/v3.2.0"
             },
             "funding": [
                 {
@@ -2182,7 +2182,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-02-25T11:15:52+00:00"
+            "time": "2022-11-25T10:21:52+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -2529,16 +2529,16 @@
         },
         {
             "name": "symfony/translation-contracts",
-            "version": "v3.1.1",
+            "version": "v3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation-contracts.git",
-                "reference": "606be0f48e05116baef052f7f3abdb345c8e02cc"
+                "reference": "68cce71402305a015f8c1589bfada1280dc64fe7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation-contracts/zipball/606be0f48e05116baef052f7f3abdb345c8e02cc",
-                "reference": "606be0f48e05116baef052f7f3abdb345c8e02cc",
+                "url": "https://api.github.com/repos/symfony/translation-contracts/zipball/68cce71402305a015f8c1589bfada1280dc64fe7",
+                "reference": "68cce71402305a015f8c1589bfada1280dc64fe7",
                 "shasum": ""
             },
             "require": {
@@ -2550,7 +2550,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "3.1-dev"
+                    "dev-main": "3.3-dev"
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -2590,7 +2590,7 @@
                 "standards"
             ],
             "support": {
-                "source": "https://github.com/symfony/translation-contracts/tree/v3.1.1"
+                "source": "https://github.com/symfony/translation-contracts/tree/v3.2.0"
             },
             "funding": [
                 {
@@ -2606,7 +2606,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-06-27T17:24:16+00:00"
+            "time": "2022-11-25T10:21:52+00:00"
         },
         {
             "name": "voku/portable-ascii",
