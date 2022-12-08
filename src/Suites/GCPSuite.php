@@ -21,18 +21,10 @@ class GCPSuite extends Suite
             return $secretName;
         }
 
-        $cacheKey = $this->cacheKey($secretName);
-
-        if ($this->cache->has($cacheKey)) {
-            return $this->cache->get($cacheKey);
-        }
-
         try {
+            $secretFullName = 'projects/' . getenv('GCP_PROJECT_ID') . '/secrets/' . $secretName . '/versions/latest';
             $secretClient = new SecretManagerServiceClient();
-            $value = $secretClient->accessSecretVersion('projects/' . getenv('GCP_PROJECT_ID') . '/secrets/' . $secretName . '/versions/latest')->getPayload()->getData();
-            $this->cache->set($cacheKey, $value);
-
-            return $value;
+            return $secretClient->accessSecretVersion($secretFullName)->getPayload()->getData();
         } catch (Exception $e) {
             error_log(json_encode(
                 LogPayload::build()
