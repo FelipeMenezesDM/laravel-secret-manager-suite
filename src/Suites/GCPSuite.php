@@ -73,11 +73,11 @@ class GCPSuite extends Suite
 
                     $secretClient->addSecretVersion($secret->getName(), new SecretPayload(['data' => $secretValue]));
                 } catch (Exception) {
-                    $secret = $secretClient->getSecret($secretFullName);
                     $currentValue = $secretClient->accessSecretVersion($secretFullName . '/versions/latest')->getPayload()->getData();
 
                     if($currentValue != $secretValue) {
-                        $secretClient->disableSecretVersion($secretFullName . '/versions/*');
+                        $secret = $secretClient->getSecret($secretFullName);
+                        $secretClient->destroySecretVersion($secretFullName . '/versions/*');
                         $secretClient->addSecretVersion($secret->getName(), new SecretPayload(['data' => $secretValue]));
                     }
                 }
