@@ -8,7 +8,6 @@ class Suite
     private static $instance;
     private static $dbUrl;
     private static $dbHost;
-    private static $dbName;
     private static $dbUsername;
     private static $dbPassword;
     private static $mailHost;
@@ -116,11 +115,7 @@ class Suite
      */
     public function getDBName() : string
     {
-        if(self::$dbName === null) {
-            self::$dbName = $this->getSecretData(getenv('DB_DATABASE'));
-        }
-
-        return self::$dbName;
+        return getenv('DB_DATABASE');
     }
 
     /**
