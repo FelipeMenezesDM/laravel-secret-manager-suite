@@ -8,6 +8,7 @@ class Suite
     private static $instance;
     private static $dbUrl;
     private static $dbHost;
+    private static $dbSocket;
     private static $dbUsername;
     private static $dbPassword;
     private static $mailHost;
@@ -68,6 +69,20 @@ class Suite
         }
 
         return self::$dbHost;
+    }
+
+    /**
+     * Get database socket from secret manager
+     *
+     * @return string
+     */
+    public function getDBSocket() : string
+    {
+        if(self::$dbSocket === null) {
+            self::$dbSocket = $this->getSecretData(getenv('DB_SOCKET'));
+        }
+
+        return self::$dbSocket;
     }
 
     /**
