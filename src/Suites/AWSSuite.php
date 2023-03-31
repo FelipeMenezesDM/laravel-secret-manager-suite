@@ -16,11 +16,13 @@ class AWSSuite extends Suite
     {
         if(empty($secretName)) {
             return $secretName;
+        }elseif($cached = $this->getCache($secretName)) {
+            return $cached;
         }
 
         try{
             $result = $this->getSecretsManagerClient()->getSecretValue([ 'SecretId' => $secretName ]);
-            return isset($result['SecretString']) ? $result['SecretString'] :  base64_decode($result['SecretBinary']);
+            return $this->putCache($secretName, isset($result['SecretString']) ? $result['SecretString'] :  base64_decode($result['SecretBinary']));
         }catch(Exception $e) {
             error_log(json_encode(
                 LogPayload::build()
