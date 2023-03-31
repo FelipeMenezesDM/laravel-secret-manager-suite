@@ -19,12 +19,13 @@ class GCPSuite extends Suite
     {
         if(empty($secretName)) {
             return $secretName;
+        }elseif($cached = $this->getCache($secretName)) {
+            return $cached;
         }
 
         try {
             $secretFullName = 'projects/' . getenv('GCP_PROJECT_ID') . '/secrets/' . $secretName . '/versions/latest';
-            $secretClient = new SecretManagerServiceClient();
-            return $secretClient->accessSecretVersion($secretFullName)->getPayload()->getData();
+            return $this->putCache($secretName, (new SecretManagerServiceClient())->accessSecretVersion($secretFullName)->getPayload()->getData());
         } catch (Exception $e) {
             error_log(json_encode(
                 LogPayload::build()

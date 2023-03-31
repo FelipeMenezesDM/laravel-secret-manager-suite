@@ -56,8 +56,31 @@ class Suite
      * @param string $key
      * @return string
      */
-    protected function cacheKey(string $key): string
+    protected function cacheKey(string $key) : string
     {
-        return sprintf('%s::%s', self::class, $key);
+        return sprintf('%s::%s', self::class, hash('sha512', $key));
+    }
+
+    /**
+     * Get a secret from Laravel Cache
+     *
+     * @param string $secretName
+     * @return string
+     */
+    protected function getCache(string $secretName) : string
+    {
+        return cache($this->cacheKey($secretName));
+    }
+
+    /**
+     * Put a secret on Laravel Cache
+     *
+     * @param string $secretName
+     * @param string $secret
+     * @return string
+     */
+    protected function putCache(string $secretName, string $secret) : string
+    {
+        return cache([$this->cacheKey($secretName) => $secret]);
     }
 }
