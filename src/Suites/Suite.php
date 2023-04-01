@@ -2,10 +2,13 @@
 
 namespace FelipeMenezesDM\LaravelSecretManagerSuite\Suites;
 
+use Symfony\Component\Cache\Adapter\FilesystemAdapter;
+
 class Suite
 {
     protected static $isCloud = false;
     private static $instance;
+    private static ?FilesystemAdapter $cache;
 
     /**
      * Singleton pattern
@@ -16,6 +19,7 @@ class Suite
     {
         if(self::$instance === null) {
             self::$instance = new static;
+            self::$cache = new FilesystemAdapter();
         }
 
         return self::$instance;
@@ -58,7 +62,7 @@ class Suite
      */
     protected function cacheKey(string $key) : string
     {
-        return sprintf('%s::%s', self::class, hash('sha512', $key));
+        return sprintf('secret[%s]', hash('sha512', $key));
     }
 
     /**
@@ -67,9 +71,9 @@ class Suite
      * @param string $secretName
      * @return string
      */
-    protected function getCache(string $secretName) : string
+    protected function getCache(string $secretName) : ?string
     {
-        return cache($this->cacheKey($secretName));
+        return self::$cache->getItem($this->cacheKey($secretName))->get();
     }
 
     /**
@@ -79,8 +83,8 @@ class Suite
      * @param string $secret
      * @return string
      */
-    protected function putCache(string $secretName, string $secret) : string
+    protected function putCache(string $secretName, string $secret) : ?string
     {
-        return cache([$this->cacheKey($secretName) => $secret]);
+        return self::$cache->getItem($this->cacheKey())->set($secret)->get();
     }
 }
