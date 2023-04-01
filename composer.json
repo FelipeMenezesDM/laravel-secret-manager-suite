@@ -21,6 +21,7 @@
         "php": "^8.1",
         "aws/aws-sdk-php": "^3.238",
         "google/cloud-secret-manager": "^1.9",
-        "felipemenezesdm/laravel-logger-adapter": "^1.0"
+        "felipemenezesdm/laravel-logger-adapter": "^1.0",
+        "symfony/cache": "*"
     }
 }
