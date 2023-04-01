@@ -85,6 +85,6 @@ class Suite
      */
     protected function putCache(string $secretName, string $secret) : ?string
     {
-        return self::$cache->getItem($this->cacheKey())->set($secret)->get();
+        return self::$cache->getItem($this->cacheKey($secretName))->set($secret)->get();
     }
 }
