@@ -60,7 +60,7 @@ class Suite
      * @param string $key
      * @return string
      */
-    protected function cacheKey(string $key) : string
+    protected function getCacheKey(string $key) : string
     {
         return sprintf('secret[%s]', hash('sha512', $key));
     }
@@ -69,11 +69,11 @@ class Suite
      * Get a secret from Laravel Cache
      *
      * @param string $secretName
-     * @return string
+     * @return string|null
      */
     protected function getCache(string $secretName) : ?string
     {
-        return self::$cache->getItem($this->cacheKey($secretName))->get();
+        return self::$cache->getItem($this->getCacheKey($secretName))->get();
     }
 
     /**
@@ -81,10 +81,10 @@ class Suite
      *
      * @param string $secretName
      * @param string $secret
-     * @return string
+     * @return string|null
      */
     protected function putCache(string $secretName, string $secret) : ?string
     {
-        return self::$cache->getItem($this->cacheKey($secretName))->set($secret)->get();
+        return self::$cache->getItem($this->getCacheKey($secretName))->set($secret)->get();
     }
 }
